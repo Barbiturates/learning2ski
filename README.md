@@ -1,6 +1,6 @@
 # How to Reproduce the Results in "Learning to Ski"
 
-Thank you for taking the time to read my research paper. This document is intended to walk you through the process of reproducing the results I reported.
+Thank you for taking the time to read [my research paper](final.pdf). This document is intended to walk you through the process of reproducing the results I reported.
 
 ### __1.__ Installation
 
