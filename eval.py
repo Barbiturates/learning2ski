@@ -171,22 +171,24 @@ def main(agent_name,
                     )
 
                     if done:
+                        # calculate components of reward
                         pos_reward = int(-reward)
                         goal_reward = pos_reward - (pos_reward % 500)
                         slaloms_missed = goal_reward / 500
                         if slaloms_missed == 0 and total_reward == -30000:
                             slaloms_missed = 20
 
-                        # sars.save(sars_path)
                         pbar.update(max_steps - iteration - 1)
                         break
                     else:
                         # update the old state
                         image = new_image
 
+                    # slow down the simulation if desired
                     if slow > 0.0:
                         time.sleep(slow)
 
+                # timeout the sim
                 if iteration == max_steps:
                     msg = 'Episode {} timed out after {} steps'.format(
                         episode, max_steps)
@@ -247,11 +249,14 @@ def main(agent_name,
         log.info('Average reward of last 100 episodes: {}'.format(
             df.reward.values[-100:].mean())
         )
-        log.info('Average cost of elapsed time over last 100 episodes: {}'.format(
-            df.sloth.values[-100:].mean())
+        log.info(
+            'Average cost of elapsed time over last 100 episodes: {}'.format(
+                df.sloth.values[-100:].mean()
+            )
         )
-        log.info('Average number of slaloms missed over last 100 episodes: {}'.format(
-            df.missed.values[-100:].mean())
+        log.info(
+            'Average number of slaloms missed over last 100 episodes: '
+            '{}'.format(df.missed.values[-100:].mean())
         )
 
         with open(os.path.join(results_dir, 'agent_args.json'), 'w') as fout:
