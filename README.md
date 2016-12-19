@@ -2,6 +2,8 @@
 
 Thank you for taking the time to read [my research paper](final.pdf). This document is intended to walk you through the process of reproducing the results I reported.
 
+NOTE: _Please keep in mind as you read the paper that this project was an attempt to learn about reinforcement learning, not break any new ground in the research._
+
 ### __1.__ Installation
 
 The dependencies can be installed via `pip install -r requirements.txt`. I recommend installing into a virtual environment.
